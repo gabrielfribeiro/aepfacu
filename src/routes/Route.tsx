@@ -1,18 +1,31 @@
 import React from 'react'
+import {
+  Route as ReactDOMRoute,
+  RouteProps as ReactDOMRouteProps,
+} from 'react-router-dom'
 
-import { Route, RouteComponentProps } from 'react-router-dom'
+interface RouteProps extends ReactDOMRouteProps {
+  isPrivate?: boolean
+  component: React.ComponentType
+}
 
-const RouteWrapper = ({ component: Component, ...rest }: any) => {
+const Route = ({
+  component: Component,
+  isPrivate = false,
+  ...rest
+}: RouteProps): JSX.Element => {
   return (
-    <Route
+    <ReactDOMRoute
       {...rest}
-      render={(props: RouteComponentProps) => (
-        <div>
-          <Component {...props} />
-        </div>
-      )}
+      render={({ location }) => {
+        return (
+          <div>
+            <Component />
+          </div>
+        )
+      }}
     />
   )
 }
 
-export default RouteWrapper
+export default Route

@@ -1,12 +1,15 @@
-import React, { StrictMode } from 'react'
-import Routes from './routes'
-import history from './services/history'
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-const App = () => {
+import GlobalStyle from './assets/styles/global'
+import Routes from './routes'
+
+const App: React.FC = () => {
   return (
-    <StrictMode>
-      <Routes history={history} />
-    </StrictMode>
+    <Router>
+      <GlobalStyle />
+      <Routes />
+    </Router>
   )
 }
 
