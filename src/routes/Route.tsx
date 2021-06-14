@@ -3,6 +3,7 @@ import {
   Route as ReactDOMRoute,
   RouteProps as ReactDOMRouteProps,
 } from 'react-router-dom'
+import { PageContent } from 'src/components/PageContent'
 
 interface RouteProps extends ReactDOMRouteProps {
   isPrivate?: boolean
@@ -17,11 +18,19 @@ const Route = ({
   return (
     <ReactDOMRoute
       {...rest}
-      render={({ location }) => {
+      render={() => {
         return (
-          <div>
-            <Component />
-          </div>
+          <>
+            {isPrivate ? (
+              <PageContent>
+                <Component />
+              </PageContent>
+            ) : (
+              <div>
+                <Component />
+              </div>
+            )}
+          </>
         )
       }}
     />

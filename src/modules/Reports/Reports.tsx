@@ -4,7 +4,7 @@ import { Container } from './Reports.style'
 const Reports = () => {
   return (
     <Container>
-      <h1>Relatorios</h1>
+      <h1>Ola</h1>
     </Container>
   )
 }
