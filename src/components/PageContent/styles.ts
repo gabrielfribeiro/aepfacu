@@ -6,7 +6,8 @@ export const Container = styled.div`
   overflow: hidden;
 `
 export const Main = styled.div`
-  height: 89.3vh;
+  height: 100%;
   margin-left: 350px;
+  margin-top: 100px;
   padding: 30px;
 `

@@ -20,7 +20,7 @@ export default {
     400: '#660708',
   },
 
-  primary: '#4ea8de',
+  primary: '#72C8CD',
 
   blue: {
     100: '#0466c8',

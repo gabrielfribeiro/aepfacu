@@ -8,6 +8,7 @@ import * as S from './styles'
 export interface ITableProps<Record = unknown> {
   columns: ITableColumns<Record>[]
   data: Record[]
+  key: number
 }
 
 interface ITableColumns<Record> {
@@ -22,6 +23,7 @@ interface ITableColumns<Record> {
 export function Table<Record>({
   columns,
   data,
+  key,
 }: ITableProps<Record>): React.ReactElement<ITableProps<Record>> {
   return (
     <S.Container>
@@ -29,6 +31,7 @@ export function Table<Record>({
         columns={columns}
         data={data}
         emptyText="Nenhum dado encontrado"
+        key={key}
       />
     </S.Container>
   )

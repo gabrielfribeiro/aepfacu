@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 
-
 interface ContainerProps {
   isErrored: boolean
   width?: string

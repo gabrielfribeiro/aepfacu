@@ -48,12 +48,11 @@ const colors = {
 
   cancel: css`
     background: transparent;
-    border: 1px solid ${theme.colors.gray[400]};
-    color: ${theme.colors.gray[400]};
-    width: 120px;
-    margin-right: 15px;
+    border: 1px solid white;
+    color: white;
+
     &:hover {
-      background: ${tint(0.8, theme.colors.gray[400])};
+      background: ${shade(0.1, theme.colors.primary)};
     }
   `,
   cancelWithoutWidth: css`

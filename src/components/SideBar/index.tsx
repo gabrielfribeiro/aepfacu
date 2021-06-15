@@ -12,8 +12,14 @@ const Sidebar = ({ isOpen }: ISidebarProps) => {
   return (
     <Container isOpen={isOpen}>
       <Nav>
-        <NavLink to="/report" activeClassName="active">
-          <span>Teste</span>
+        <NavLink to="/institution" activeClassName="active">
+          <span>Instituições</span>
+        </NavLink>
+        <NavLink to="/dashboard" activeClassName="active">
+          <span>Relatório</span>
+        </NavLink>
+        <NavLink to="/student" activeClassName="active">
+          <span>Cadastrar Aluno</span>
         </NavLink>
       </Nav>
       <Nav style={{ position: 'absolute', bottom: 50, width: '100%' }}>

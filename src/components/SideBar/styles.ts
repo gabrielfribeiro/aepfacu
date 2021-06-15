@@ -10,8 +10,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.aside<ContainerProps>`
-  background-color: ${theme.colors.blue[200]};
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
   grid-area: sidenav;
   height: 90vh;
@@ -22,6 +21,7 @@ export const Container = styled.aside<ContainerProps>`
     props.isOpen ? 'translateX(0)' : 'translateX(-350px)'};
   z-index: 2;
   width: 350px;
+  margin-top: 100px;
 `
 
 export const Logo = styled.div`
@@ -40,9 +40,10 @@ export const Nav = styled.div<NavProps>`
     color: ${theme.colors.gray[200]};
     padding: 25px 25px 25px 40px;
     text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1);
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.3);
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
