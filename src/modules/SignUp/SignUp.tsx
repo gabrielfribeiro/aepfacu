@@ -6,7 +6,6 @@ import InputMask from 'react-input-mask'
 import { Form } from '@unform/web'
 import api from 'src/services/api'
 import { useHistory } from 'react-router'
-import { FaUserGraduate } from 'react-icons/fa'
 
 import {
   Container,
@@ -15,24 +14,30 @@ import {
   Title,
   SubTitle,
   Right,
-  A,
-} from './Login.style'
+  ButtonContainer,
+} from './SignUp.style'
 
-interface ILoginForm {
+interface ISignUpForm {
   cnpj: string
+  email: string
+  name: string
   password: string
+  confirm_password: string
 }
 
-const Login = () => {
+const SignUp = () => {
   const history = useHistory()
-  const handleSubmit = useCallback(async (formValues: ILoginForm) => {
+  const handleSubmit = useCallback(async (formValues: ISignUpForm) => {
     try {
       const payload = {
         cnpj: formValues.cnpj.replace(/\D/g, ''),
+        email: formValues.email,
+        name: formValues.name,
         password: formValues.password,
+        confirm_password: formValues.confirm_password,
       }
 
-      await api.post('/login', payload)
+      await api.post('/institution', payload)
       history.push('/institution')
     } catch (error) {
       console.log(error)
@@ -45,20 +50,9 @@ const Login = () => {
         <Left>
           <Title>Bem Vindo ao Mantoras</Title>
           <SubTitle>Controle de Cadastros</SubTitle>
-          <Button
-            size="default"
-            color="cancel"
-            onClick={() => history.push('/signup')}
-          >
-            Cadastrar-se
-          </Button>
+          <Title>Ainda não é cadastrado?</Title>
         </Left>
         <Right>
-          <FaUserGraduate
-            color="#72c8cd"
-            size={80}
-            style={{ marginBottom: '20px' }}
-          />
           <Form
             onSubmit={handleSubmit}
             style={{
@@ -72,14 +66,38 @@ const Login = () => {
               {() => <Input name="cnpj" placeholder="Digite seu CNPJ" />}
             </InputMask>
             <Input
+              name="name"
+              placeholder="Digite o nome da instituição"
+              type="name"
+            />
+            <Input
+              name="email"
+              placeholder="Digite um email pra contato"
+              type="email"
+            />
+            <Input
               name="password"
               placeholder="Digite sua senha"
               type="password"
             />
-            <A>Esqueci minha senha!</A>
-            <Button size="default" type="submit" full>
-              Entrar
-            </Button>
+            <Input
+              name="confirm_password"
+              placeholder="Confirme sua senha"
+              type="password"
+            />
+            <ButtonContainer>
+              <Button
+                size="default"
+                full
+                onClick={() => history.push('/login')}
+              >
+                Cancelar
+              </Button>
+              <div style={{ width: '20px' }} />
+              <Button size="default" type="submit" full>
+                Entrar
+              </Button>
+            </ButtonContainer>
           </Form>
         </Right>
       </Content>
@@ -87,4 +105,4 @@ const Login = () => {
   )
 }
 
-export { Login }
+export { SignUp }

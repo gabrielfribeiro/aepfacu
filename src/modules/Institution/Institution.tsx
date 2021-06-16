@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { useEffect, useState } from 'react'
-
+import { toast } from 'react-toastify'
 import { Panel } from 'rc-collapse'
 import { ITableProps, Table } from 'src/components/Table'
 import api from 'src/services/api'
@@ -53,6 +53,7 @@ const Institution = () => {
     try {
       setIsloading(true)
       await api.delete(`/institution/student?ra=${item.ra}`)
+      toast.success('Aluno deletado com sucesso')
       findInstitutions()
     } catch (error) {
       console.log(error)

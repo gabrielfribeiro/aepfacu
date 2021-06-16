@@ -5,11 +5,13 @@ import { Login } from 'src/modules/Login'
 import { Institution } from 'src/modules/Institution'
 import { Dashboard } from 'src/modules/Dashboard'
 import { Student } from 'src/modules/Student'
+import { SignUp } from 'src/modules/SignUp'
 
 const Routes = () => (
   <>
     <Switch>
       <Route path="/" exact component={Login} />
+      <Route path="/signup" exact component={SignUp} />
       <Route path="/institution" isPrivate exact component={Institution} />
       <Route path="/dashboard" isPrivate exact component={Dashboard} />
       <Route path="/student" isPrivate exact component={Student} />
