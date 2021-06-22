@@ -38,6 +38,7 @@ const Student = () => {
       await studentSchema.validate(payload, { abortEarly: false })
 
       await api.post('/institution/student', payload)
+      toast.success('Aluno cadastrado com sucesso')
       history.push('/institution')
     } catch (error) {
       error.errors.forEach((error: import('react-toastify').ToastContent) =>
