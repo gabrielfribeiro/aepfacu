@@ -137,7 +137,7 @@ const Institution = () => {
             )
           })
         ) : (
-          <EmptyData>Você não possui nenhum data cadastrado!</EmptyData>
+          <EmptyData>Você não possui nenhum dado cadastrado!</EmptyData>
         )}
       </Container>
     </>

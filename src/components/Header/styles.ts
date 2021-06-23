@@ -19,7 +19,7 @@ export const IconContainer = styled.div`
   align-items: center;
 `
 export const SearchContainer = styled.div`
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -30,7 +30,6 @@ export const Search = styled.input`
   box-shadow: 0 0 0 0;
   border: 0 none;
   outline: 0;
-  border-radius: 10px;
 
   &:focus {
     box-shadow: 0 0 0 0;
